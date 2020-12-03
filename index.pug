@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Mindreader's Digest
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inconsolata&display=swap')
+    link(rel='stylesheet' href='./css/style.css')
+
+  body
+    #shell.unloaded
+      pre.term(@click='focusCmd' v-show='!windowed') {{text}}
+        .cmd-wrapper
+          label > 
+          input(ref='cmd' @keyup='bottom' @keyup.enter='submit' spellcheck='false')
+
+      .window(v-show='windowed')
+        .top
+          .title {{winTitle}}
+          .close(@click='winClose') X
+        pre.content(v-html='winContent')
+
+    script(src='https://cdn.jsdelivr.net/npm/vue@next')
+    script(src='./js/content.js')
+    script(src='./js/cmds.js')
+    script(src='./js/shell.js')

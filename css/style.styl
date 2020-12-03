@@ -1,0 +1,79 @@
+BG = #0f0f0f
+FG = #bfbfbf
+
+*
+  box-sizing border-box
+
+html, body
+  background BG
+  margin 0
+  color FG
+
+#shell
+  height 100%
+  width 100%
+  position fixed
+  padding 5rem 20rem
+  display flex
+  font-family 'Inconsolata', monospace
+  font-size 1.5rem
+
+  &.unloaded
+    display none
+
+  pre
+    font-family inherit
+    font-size inherit
+    white-space pre-wrap
+    margin 0
+
+.term
+  flex 1
+  overflow auto
+  scrollbar-width none
+
+  &::-webkit-scrollbar
+    width 0
+
+.window
+  flex 1
+  display flex
+  flex-direction column
+  background-color FG
+
+  .top
+    display flex
+    background-color BG
+    border 2px solid FG
+    color FG
+    padding .5rem .8rem
+
+    .title
+      flex 1
+
+    .close
+      cursor pointer
+      user-select none
+
+  .content
+    flex 1
+    padding 2rem
+    color BG
+    overflow auto
+    scrollbar-width none
+
+    &::-webkit-scrollbar
+      width 0
+
+.cmd-wrapper
+  display flex
+
+  input
+    flex 1
+    background none
+    border none
+    font-family inherit
+    font-size inherit
+    color FG
+    padding 0
+    outline none
