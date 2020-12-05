@@ -16,6 +16,9 @@ Lists the contents of the Digest.
 > read [number]
 Reads the article given by the number. Type 'list' to see the available articles.
 
+> truth
+It is STRONGLY recommended that you do not run this command.
+
 To close this window, click the 'X' in the upper right-hand corner or press 'Esc' on your keyboard.
 
 
@@ -54,6 +57,21 @@ Designed with &hearts; by Ben Pang for CommTech Fall 2020.
       }
     } else {
       ctx.text += `Please provide a valid article number.`
+    }
+  },
+
+  truth(ctx, arg){
+    let parsed = arg && arg.split(/\s+/)[0]
+    if(parsed == '1' && !ctx.bad){
+      ctx.bad = true
+      content.push(...content_bad)
+      ctx.text += `Digest unlocked.\n\nNew articles available. Type 'list' to see them.`
+    }
+    else if(ctx.bad){
+      ctx.text += `Digest already unlocked.`
+    }
+    else {
+      ctx.text += `WARNING: Unlocking your Digest is considered a breach of Mindreader EULA and will void your Mindreader warranty. Content obtained through unlocking is neither endorsed by Mindreader Technologies nor legally protected in all countries. This decision is irreversible.\n\nType 'truth 1' if you wish to continue.`
     }
   },
 

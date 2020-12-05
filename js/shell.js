@@ -3,6 +3,8 @@ const Shell = {
     return {
       text: `MINDREADER's DIGEST\nv0.0.1\nType 'help' for a list of commands.\n\n`,
       windowed: false,
+      confirm: false,
+      unlocked: false,
       winTitle: '',
       winContent: ''
     }
